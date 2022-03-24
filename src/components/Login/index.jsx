@@ -3,10 +3,15 @@ import "./login.css";
 
 function Login() {
   return (
-    <div class="container">
-      <div class="row">
-        <div class="col"></div>
-        <div class="col">Login</div>
+    <div className="container">
+      <div className="row">
+        <div className="col">
+          <div className="dev-united-logo"></div>
+        </div>
+        <div className="col right-side-login">
+          <h1>LOREM IPSUM DOLOR</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+        </div>
       </div>
     </div>
   );

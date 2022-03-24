@@ -1,6 +1,48 @@
 * {
   box-sizing: border-box;
+  /* border: 1px solid white; */
+}
+
+@font-face {
+  font-family: skillscreen;
+  src: url("../../fonts/slkscre.ttf");
+}
+@font-face {
+  font-family: firacode;
+  src: url("../../fonts/FiraCode.ttf");
 }
 body {
   background-color: #2e132c;
+}
+
+.dev-united-logo {
+  background-image: url("../../images/logo_dev_united.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  width: 100%;
+}
+
+.col {
+  padding: 55px;
+}
+
+.right-side-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  color: white;
+  font-family: skillscreen;
+  font-size: 50px;
+}
+
+p {
+  font-family: firacode;
+  color: white;
+  font-size: 24px;
 }
