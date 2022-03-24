@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Login from "./components/Login";
 import { firebase } from "./firebase";
 
 function App() {
   const [tweets, setTweets] = useState([]);
+  const [tweet, setTweet] = useState("");
 
   useEffect(() => {
     const obtenerDatos = async () => {
@@ -22,9 +24,28 @@ function App() {
     obtenerDatos();
   }, []);
 
+  const publicar = async (e) => {
+    e.preventDefault();
+    if (!tweet.trim()) {
+      console.log("Está vacío");
+      return;
+    }
+    try {
+      const db = firebase.firestore();
+      const nuevoTweet = {
+        message: tweet,
+      };
+      const data = await db.collection("tweets").add(nuevoTweet);
+      setTweet("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="container mt-3">
-      <div className="row">
+      <Login />
+      {/* <div className="row">
         <div className="col-md-6">
           <ul className="list-group">
             {tweets.map((tweet) => (
@@ -34,8 +55,22 @@ function App() {
             ))}
           </ul>
         </div>
-        <div className="col-md-6">Formulario</div>
-      </div>
+        <div className="col-md-6">
+          <h3>Formulario</h3>
+          <form onSubmit={publicar}>
+            <input
+              type="text"
+              placeholder="Publicar tweet"
+              className="form-control mb-2"
+              onChange={(e) => setTweet(e.target.value)}
+              value={tweet}
+            />
+            <button className="btn btn-dark btn-block" type="submit">
+              Publicar
+            </button>
+          </form>
+        </div>
+      </div> */}
     </div>
   );
 }
