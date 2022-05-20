@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Login from "./components/Login/index";
+import Navbar from "./components/Navbar/index";
 import { firebase } from "./firebase";
 
 function App() {
@@ -93,15 +94,23 @@ function App() {
   };
 
   return (
-    // <BrowserRouter>
-    <div className="container mt-3">
-      {/* <Routes>
+    <Router>
+      <div className="container mt-3">
+        <Switch>
           <Route path="/" exact>
-            Inicio
+            <Login />
           </Route>
-          <Route path="/login">
-            <Login /> */}
-      <div className="row">
+          <Route path="/welcome">
+            <Navbar />
+          </Route>
+          <Route path="/feed">
+            <Navbar />
+          </Route>
+          <Route path="/user">
+            <Navbar />
+          </Route>
+        </Switch>
+        {/* <div className="row">
         <div className="col-md-6">
           <ul className="list-group">
             {tweets.map((tweet) => (
@@ -145,12 +154,9 @@ function App() {
             </button>
           </form>
         </div>
+      </div> */}
       </div>
-      {/* </Route>
-          <Route path="/admin">Admin</Route>
-        </Routes> */}
-    </div>
-    // </BrowserRouter>
+    </Router>
   );
 }
 

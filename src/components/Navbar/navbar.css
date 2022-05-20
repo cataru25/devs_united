@@ -1,0 +1,19 @@
+.navbar-buttons {
+    display: flex;
+    background: #250C23;
+    width: 100%;
+    justify-content: space-between;
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logout-logo {
+    background-image: url("../../images/logout.png");
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+  width: 100%;
+}
